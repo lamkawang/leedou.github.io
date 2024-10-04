@@ -5,16 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Business Casual - Start Bootstrap Theme</title>
+        <title>110級世新大學資訊傳播系畢業專題「哩豆」</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-          <style>
+        <style>
             body, h1, h2, p, a, span {
-                font-family: '新細明體', serif;
+                font-family: '微軟正黑', serif;
+            }
+
+            .image-container {
+                width: 200px; /* 设置容器的宽度，图片会适应这个宽度 */
+                height: 150px; /* 设置容器的高度 */
+                overflow: hidden; /* 防止图片溢出容器 */
+                border-radius: 100%; /* 使容器成为圆形 */
+                margin: 0 auto; /* 居中 */
+            }
+
+            .image-container img {
+                width: 100%;
+                height: auto; /* 图片会按比例缩放 */
+                border-radius: 100%; /* 使图片也是圆形 */
             }
         </style>
     </head>
@@ -26,7 +40,7 @@
             </h1>
         </header>
         <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
                 <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -47,28 +61,23 @@
             <div class="col-xl-9 mx-auto">
                 <div class="about-inner bg-faded text-center rounded">
                     <h2 class="section-heading mb-5">
-                        <span class="section-heading-upper">About Us</span>
-                        <span class="section-heading-lower">Our Story</span>
+                        <span class="section-heading-lower">關於我們</span>
                     </h2>
-                    <p class="mb-5 text-left mx-auto">
-                        At our core, we are passionate about bringing you the best coffee experience. Located in the heart of Golden Valley, Minnesota, we have been serving our community with dedication and love for many years.
-                        <br><br>
-                        Our mission is simple: to create a space where coffee lovers can gather, enjoy a great cup of coffee, and feel at home. We carefully select our beans, craft each cup with precision, and ensure that every visit is a delightful experience.
-                        <br><br>
-                        From the moment you step into our café, you’ll be greeted with the aroma of freshly brewed coffee and the warmth of our friendly staff. Whether you're here for a quick coffee run or to relax with friends, we strive to make every visit special.
-                    </p>
-                    <p class="address mb-5">
-                        <em>
-                            <strong>1116 Orchard Street</strong>
-                            <br />
-                            Golden Valley, Minnesota
-                        </em>
-                    </p>
-                    <p class="mb-0">
-                        <small><em>Contact Us</em></small>
-                        <br />
-                        (317) 585-8468
-                    </p>
+                    <p class="mb-5 text-right mx-auto">
+    
+    <h1>專題背景</h1><br></br>
+    現代人對於咖啡的需求逐漸增加，每天早上喝一杯咖啡也成了許多人日常。但現今生活的節奏快，上課上班前的時間也須爭分奪秒，於是膠囊咖啡就成了一個快速方便的選擇，讓人們有限的時間內，快速地喝到一杯咖啡。然而這樣的選擇，在台灣似乎不甚流行，我們十分好奇其背後的原因。經過問卷調查及實際訪談後，我們發現現代人不選擇膠囊咖啡，主要有以下原因：
+    <br>1. 價格高昂</br>
+    <br>2. 封閉性高</br>
+    <br>3. 影響環境</br>
+    <br>我們希望可以藉由建立一個入口網站，扭轉人們對於膠囊咖啡的想法，並提升大家回收膠囊的意願。</br>
+</p>
+
+<style>
+    .text-right {
+        text-align: left;
+    }
+</style>
                 </div>
             </div>
         </div>
@@ -76,75 +85,197 @@
         <div class="row text-center">
             <!-- Person 1 -->
             <div class="col-lg-3">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/person1.jpg" alt="Person 1" width="150" height="150">
-                    <h4><font color="#FFFFFF" face="標楷體" size="+4">鄭人維</font></h4>
-                    <p class="text-muted">專案經理</p>
-                    <p>John has over 20 years of experience in the coffee industry and is passionate about creating a space for community and connection through coffee.</p>
-                </div>
-            </div>
+    <div class="image-text-container">
+        <div class="image-container">
+            <img class="rounded-circle" src="assets/img/person1.jpg" alt="Person 1">
+        </div>
+        <div class="text-container">
+            <h4><font color="#FFFFFF" face="微軟正黑" size="+4">鄭人維</font></h4>
+<p class="text-muted text-white">專案經理</p>
+
+<style>
+    .text-white {
+        color: white;
+    }
+</style>
+
+            <p><font color="#FFFFFF">主要工作是負責計劃、執行和完成專案，確保專案的品質標準，並負責我們每一個任務的檢驗，還有一個很重要的工作就是代表所有組員和各單位的溝通協調，是不可忽視的工作！也是我們的核心！</font></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-text-container {
+        display: flex;
+        flex-direction: column; /* 控制图片和文字上下排列 */
+        align-items: center; /* 居中对齐 */
+    }
+
+    .image-container {
+        margin-bottom: 20px; /* 设置图片和文字的间距 */
+    }
+
+    .text-container {
+        text-align: center; /* 文本居中 */
+    }
+
+    .image-container img {
+        width: auto; /* 控制图片的大小 */
+        height: auto; /* 保持图片比例 */
+        border-radius: 100%; /* 图片圆形 */
+    }
+</style>
+
             <!-- Person 2 -->
             <div class="col-lg-3">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/person2.jpg" alt="Person 2" width="150" height="150">
-                    <h4><font color="#FFFFFF" face="標楷體" size="+4">王顗媛</font></h4>
-                    <p class="text-muted">視覺設計</p>
-                    <p>Jane brings artistry and skill to every cup she makes, always ensuring a high-quality coffee experience for every customer.</p>
-                </div>
-            </div>
+    <div class="image-text-container">
+        <div class="image-container">
+            <img class="rounded-circle" src="assets/img/person2.jpg" alt="Person 1">
+        </div>
+        <div class="text-container">
+            <h4><font color="#FFFFFF" face="微軟正黑" size="+4">王顗媛</font></h4>
+            <p class="text-muted">視覺設計</p>
+            <p><font color="#FFFFFF">視覺設計師的目標是通過圖像、色彩和排版等來傳達訊息。
+            而我們這麼好看的logo跟主視覺、每一則貼文的圖片和之後的展覽會上看到更多跟專題相關的物品跟展覽本體都是她親手設計的～</font></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-text-container {
+        display: flex;
+        flex-direction: column; /* 控制图片和文字上下排列 */
+        align-items: center; /* 居中对齐 */
+    }
+
+    .image-container {
+        margin-bottom: 20px; /* 设置图片和文字的间距 */
+    }
+
+    .text-container {
+        text-align: center; /* 文本居中 */
+    }
+
+    .image-container img {
+        width: 150px; /* 控制图片的大小 */
+        height: auto; /* 保持图片比例 */
+        border-radius: 50%; /* 图片圆形 */
+    }
+</style>
+
             <!-- Person 3 -->
             <div class="col-lg-3">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/person3.jpg" alt="Person 3" width="150" height="150">
-                    <h4><font color="#FFFFFF" face="標楷體" size="+4">李毅恆</font>
-</h4>
-                    <p class="text-muted">行銷企劃</p>
-                    <p>Mark carefully selects and roasts the finest beans to bring out their unique flavors and aromas, ensuring the perfect cup every time.</p>
-                </div>
-            </div>
+    <div class="image-text-container">
+        <div class="image-container">
+            <img class="rounded-circle" src="assets/img/person3.jpg" alt="Person 1">
+        </div>
+        <div class="text-container">
+            <h4><font color="#FFFFFF" face="微軟正黑" size="+4">李毅恆</font></h4>
+            <p class="text-muted">社群行銷</p>
+            <p><font color="#FFFFFF">主要是通過社交媒體平台建立我們專題的知名度、與受眾互動並推動社群成長，
+            而你們看到的貼文文案跟影片都是出自他手，還有負責拉贊助的部份也是他喔。</font></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-text-container {
+        display: flex;
+        flex-direction: column; /* 控制图片和文字上下排列 */
+        align-items: center; /* 居中对齐 */
+    }
+
+    .image-container {
+        margin-bottom: 20px; /* 设置图片和文字的间距 */
+    }
+
+    .text-container {
+        text-align: center; /* 文本居中 */
+    }
+
+    .image-container img {
+        width: 150px; /* 控制图片的大小 */
+        height: auto; /* 保持图片比例 */
+        border-radius: 50%; /* 图片圆形 */
+    }
+</style>
+
             <!-- Person 4 -->
-            <div class="col-lg-3">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/person4.jpg" alt="Person 4" width="150" height="150">
-                    <h4><font color="#FFFFFF" face="標楷體" size="+4">林嘉宏</font></h4>
-                    <p class="text-muted">程式設計</p>
-                    <p>Emily’s warm personality and dedication to service help create a welcoming atmosphere for all who visit our café.</p>
-                </div>
-            </div>
+<div class="col-lg-3">
+    <div class="image-text-container">
+        <div class="image-container">
+            <img class="rounded-circle" src="assets/img/person4.jpg" alt="Person 1">
+        </div>
+        <div class="text-container">
+            <h4><font color="#FFFFFF" face="微軟正黑" size="+4">林嘉宏</font></h4>
+            <p class="text-muted" style="color: white;">系統分析</p>
+            <p><font color="#FFFFFF">系統分析師的主要工作是規劃系統、網站架構、流程與功能，確保系統可行性與效率。而你們現在看到整個網站的所有就是出自他的手
+            。</font></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-text-container {
+        display: flex;
+        flex-direction: column; /* 控制图片和文字上下排列 */
+        align-items: center; /* 居中对齐 */
+    }
+
+    .image-container {
+        margin-bottom: 20px; /* 设置图片和文字的间距 */
+    }
+
+    .text-container {
+        text-align: center; /* 文本居中 */
+    }
+
+    /* 设置正方形的圆形图片 */
+    .image-container img {
+        width: 150px;  /* 固定宽度为150px */
+        height: 150px; /* 固定高度为150px，确保为正方形 */
+        border-radius: 50%; /* 圆形效果 */
+        border: 5px solid #FFFFFF; /* 白色圆形边框 */
+    }
+</style>
+
+
         </div>
     </div>
 </section>
 
-
         <section class="page-section about-heading">
             <div class="container">
-                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="..." />
+                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/person5.jpg" alt="..." style="width: 60%;display: block; margin: auto;"/>
                 <div class="about-heading-content">
                     <div class="row">
                         <div class="col-xl-9 col-lg-10 mx-auto">
                             <div class="bg-faded rounded p-5">
                                 <h2 class="section-heading mb-4">
-                                    <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                                    <span class="section-heading-lower">About Our Cafe</span>
+                                    <span class="section-heading-upper">About Our Cafe</span>
+                                    <span class="section-heading-lower">專題目標</span>
                                 </h2>
-                                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-                                <p class="mb-0">
-                                    We guarantee that you will fall in
-                                    <em>lust</em>
-                                    with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.
-                                </p>
+                                <p>想提供使用者一個全新的平台，在上面可以了解到使用者需要的膠囊咖啡相關問題的解答。</p>
+                                <p>我們還會社群經營自己的Instaagram,定期更新影片、發送知識性貼文以及發佈相關展覽等資訊。從而提升大眾使用膠囊咖啡的意願並提升廢棄膠囊的回收率，向大眾破解膠囊咖啡不環保的說法，達到永續發展。
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
-        </footer>
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+        <p class="m-0 small">
+            <img src="assets/img/igicon.jpg" alt="Instagram Icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 5px;">
+            Instagram：leedou_coffee
+        </p>
+    </div>
+</footer>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
