@@ -40,6 +40,60 @@
     font-size: 1.2rem;
     margin: 0;
 }
+
+/* 響應式設計 */
+            @media only screen and (max-width: 600px) {
+                body {
+                    font-size: 14px;
+                }
+                .container {
+                    width: 100%;
+                    padding: 10px;
+                }
+                table {
+                    width: 100%;
+                }
+                th, td {
+                    padding: 10px;
+                }
+            }
+
+            @media only screen and (min-width: 601px) and (max-width: 1024px) {
+                body {
+                    font-size: 16px;
+                }
+                .container {
+                    width: 90%;
+                    padding: 20px;
+                }
+                table {
+                    width: 100%;
+                }
+                th, td {
+                    padding: 15px;
+                }
+            }
+
+            @media only screen and (min-width: 1025px) {
+                body {
+                    font-size: 18px;
+                }
+                .container {
+                    width: 80%;
+                    padding: 30px;
+                }
+                table {
+                    width: 100%;
+                }
+                th, td {
+                    padding: 20px;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
 </style>
     </head>
     <body>
@@ -56,11 +110,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">膠囊咖啡知識</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">膠囊咖啡生產業</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">常見問題</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store2.html">關於我們</a></li>   
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="https://www.instagram.com/leedou_coffee?igsh=MXI2M2sxdnNhMWZhcw%3D%3D&utm_source=qr" target="_blank">Instagram</a></li>
+<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html" style="font-size: 20px;">膠囊咖啡知識</a></li>
+<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html" style="font-size: 20px;">膠囊咖啡生產業</a></li>
+<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html" style="font-size: 20px;">常見問題</a></li>
+<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store2.html" style="font-size: 20px;">關於我們</a></li>
 
                     </ul>
                 </div>
@@ -100,68 +153,41 @@
 <section class="page-section" id="first-impressions">
     <div class="container">
         <h2 class="section-heading text-center" style="color: white;">對膠囊咖啡的初印象</h2>
-        <div class="row">
-
-            <!-- 第一個副標題 -->
-            <div class="col-lg-12 text-center">
-                <h3 class="section-heading-upper mt-5" style="color: white;">優點</h3>
-            </div>
-        </div>
         <div class="row justify-content-center">
-            <!-- 四個格子 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #844200; border: none;">
-                    <p style="color: white;">方便快速</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #D26900; border: none;">
-                    <p style="color: white;">品質穩定</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #844200; border: none;">
-                    <p style="color: white;">容易保存</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #D26900; border: none;">
-                    <p style="color: white;">環保</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- 第二個副標題 -->
-            <div class="col-lg-12 text-center">
-                <h3 class="section-heading-upper mt-5" style="color: white;">缺點</h3>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <!-- 再次加入四個格子 -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #844200; border: none;">
-                    <p style="color: white;">價格偏高</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #D26900; border: none;">
-                    <p style="color: white;">品牌限制</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #844200; border: none;">
-                    <p style="color: white;">機器受限</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="box p-4 rounded" style="background-color: #D26900; border: none;">
-                    <p style="color: white;">回收麻煩</p>
-                </div>
+            <div class="col-lg-12">
+                <!-- 表格開始 -->
+                <table class="table table-bordered" style="width: 100%; text-align: center; color: white;">
+                    <thead>
+                        <tr>
+                            <th style="background-color: #844200; padding: 15px;">優點</th>
+                            <th style="background-color: #D26900; padding: 15px;">缺點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="background-color: #844200; padding: 15px;">方便快速</td>
+                            <td style="background-color: #D26900; padding: 15px;">價格偏高</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #844200; padding: 15px;">品質穩定</td>
+                            <td style="background-color: #D26900; padding: 15px;">品牌限制</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #844200; padding: 15px;">容易保存</td>
+                            <td style="background-color: #D26900; padding: 15px;">機器受限</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #844200; padding: 15px;">環保</td>
+                            <td style="background-color: #D26900; padding: 15px;">回收麻煩</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 表格結束 -->
             </div>
         </div>
     </div>
 </section>
+
 <section class="page-section" id="process-flow">
     <div class="container">
         <h1 class="section-heading text-center mb-5" style="color: white;">Nespresso膠囊咖啡回收流程</h1>
@@ -170,7 +196,7 @@
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <div class="box p-4 rounded" style="background-color: #F4A261;">
-                    <h2 style="color: white;">步驟 1:撕一撕</h2>
+                    <h2 style="color: white;">步驟 1：撕一撕</h2>
                     <p style="color: white; text-align: left;">待膠囊冷卻，撕開膠囊頂部封膜</p>
                 </div>
             </div>
@@ -183,7 +209,7 @@
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <div class="box p-4 rounded" style="background-color: #2A9D8F;">
-                    <h2 style="color: white;">步驟 2:倒一倒</h2>
+                    <h2 style="color: white;">步驟 2：倒一倒</h2>
                     <p style="color: white; text-align: left;">倒出咖啡渣，分類至廚餘回收</p>
                 </div>
             </div>
@@ -196,7 +222,7 @@
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <div class="box p-4 rounded" style="background-color: #E76F51;">
-                    <h2 style="color: white;">步驟 3:進行回收</h2>
+                    <h2 style="color: white;">步驟 3：進行回收</h2>
                     <p style="color: white; text-align: left;">方法一：重複利用家中提袋，攜帶至鄰近的門市回收箱或交給門市服務人員。</p>
                 </div>
             </div>
@@ -222,8 +248,12 @@
 <footer class="footer text-faded text-center py-5">
     <div class="container">
         <p class="m-0 small">
-            <img src="assets/img/igicon.jpg" alt="Instagram Icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 5px;">
-            Instagram：leedou_coffee
+            <span style="display: block; font-size: 16px; color: #999; margin-bottom: 10px;">資料來源：膠囊咖啡相關內容與常見問題，引用自相關產品公司官網與網絡資料。</span>
+            <img src="assets/img/igicon.png" alt="Instagram Icon" style="width: 2em; height: 2em; vertical-align: middle; margin-right: 5px;">
+            <a href="https://www.instagram.com/leedou_coffee?igsh=MXI2M2sxdnNhMWZhcw%3D%3D&utm_source=qr" style="font-size: 18px;">Instagram：leedou_coffee</a>
+            <img src="assets/img/FBlogo.png" alt="Instagram Icon" style="width: 1.5em; height: 1.5em; vertical-align: middle; margin-right: 5px;">
+            <a href="https://www.facebook.com/profile.php?id=61557477295469&mibextid=LQQJ4d" style="font-size: 18px;">Facebook：哩豆leedou_coffee
+            </a>
         </p>
     </div>
 </footer>
