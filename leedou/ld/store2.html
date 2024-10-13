@@ -40,21 +40,23 @@
             </h1>
         </header>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html" style="font-size: 20px;">膠囊咖啡知識</a></li>
-<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html" style="font-size: 20px;">膠囊咖啡生產業</a></li>
-<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html" style="font-size: 20px;">常見問題</a></li>
-<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store2.html" style="font-size: 20px;">關於我們</a></li>
-  
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-lg navbar-dark py-lg-4 sticky-top" id="mainNav" style="position: sticky; top: 0; z-index: 1000;">
+    <div class="container">
+        <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html" style="font-size: 20px;">膠囊咖啡知識</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html" style="font-size: 20px;">膠囊咖啡生產業</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html" style="font-size: 20px;">常見問題</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store2.html" style="font-size: 20px;">關於我們</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <section class="page-section about">
     <div class="container">
         <div class="row">
@@ -107,7 +109,7 @@
 <div class="col-lg-3">
     <div class="image-text-container">
         <div class="image-container">
-            <img class="rounded-circle" src="assets/img/person1.1.jpg" alt="Person 1">
+            <img class="rounded-circle" src="assets/img/person1.jpg" alt="Person 1">
         </div>
         <div class="text-container">
             <h4><font color="#FFFFFF" face="微軟正黑" size="+4">鄭人維</font></h4>
@@ -120,27 +122,34 @@
 <style>
     .image-text-container {
         display: flex;
-        flex-direction: column; /* 控制图片和文字上下排列 */
-        align-items: center; /* 居中对齐 */
-        background-color: rgba(0, 0,0, 0.5); /* 添加透明背景色 */
-        padding: 20px; /* 添加内边距 */
-        width: 300px; /* 固定容器宽度 */
-        height: 540px; /* 自动适应内容高度 */
-        border-radius: 10px; /* 让格子有圆角 */
+        flex-direction: column; /* 控制圖片和文字上下排列 */
+        align-items: center; /* 居中對齊 */
+        background-color: rgba(0, 0, 0, 0.5); /* 添加透明背景色 */
+        padding: 20px; /* 添加內邊距 */
+        width: 300px; /* 固定容器寬度 */
+        border-radius: 10px; /* 讓格子有圓角 */
     }
 
     .image-container {
-        margin-bottom: 20px; /* 设置图片和文字的间距 */
+        margin-bottom: 20px; /* 設置圖片和文字的間距 */
+        width: 150px; /* 固定圖片容器寬度 */
+        height: 150px; /* 固定圖片容器高度 */
+        overflow: hidden; /* 隱藏超出容器的部分 */
+        border-radius: 100%; /* 容器圓形 */
+        display: flex; /* 使用 Flexbox 以控制內部對齊 */
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+    }
+
+    .image-container img {
+        width: 100%; /* 使圖片寬度佔滿容器 */
+        height: auto; /* 自動調整高度以保持比例 */
+        object-fit: cover; /* 使圖片填充容器並保持比例 */
+        border-radius: 100%; /* 圓形圖片 */
     }
 
     .text-container {
         text-align: center; /* 文本居中 */
-    }
-
-    .image-container img {
-        width: 150px; /* 固定图片宽度 */
-        height: 150px; /* 固定图片高度 */
-        border-radius: 100%; /* 图片圆形 */
     }
 </style>
 
