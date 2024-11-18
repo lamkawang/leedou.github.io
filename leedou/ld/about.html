@@ -12,6 +12,9 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
     <style>
             body, h1, h2, p, a, span {
                 font-family: '微軟正黑', serif;
@@ -19,6 +22,20 @@
         </style>
     </head>
     <body>
+               <script>
+window.embeddedChatbotConfig = {
+chatbotId: "ZzNDtGEBzZsWjwYIYzgVK",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="ZzNDtGEBzZsWjwYIYzgVK"
+domain="www.chatbase.co"
+defer>
+</script>
+
+
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">膠囊咖啡</span>
@@ -93,6 +110,72 @@
     </div>
 </section>
 
+<!-- 地圖容器 -->
+<div id="map" style="height: 600px; width: 100%;"></div>
+
+<script>
+        // 初始化地圖
+    var map = L.map('map').setView([25.033, 121.5654], 12); // 中心點設置在台北
+
+    // 添加 OpenStreetMap 地圖圖層
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // 自訂 iBox 郵筒與 Nespresso 門市的樣式
+    const iboxMarkerOptions = {
+        radius: 8,
+        fillColor: "blue", // iBox 的顏色
+        color: "blue",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    const nespressoMarkerOptions = {
+        radius: 8,
+        fillColor: "green", // Nespresso 的顏色
+        color: "green",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    // iBox 郵筒資料
+    const iboxLocations = [
+        { name: "臺北開封街ｉ郵箱", lat: 25.04613, lon: 121.512421, address: "臺北市中正區開封街1段45號", hours: "24小時" },
+        { name: "臺北南陽郵局ｉ郵箱", lat: 25.04452, lon: 121.51587, address: "臺北市中正區信陽街8號", hours: "24小時" },
+        { name: "臺北東門郵局ｉ郵箱", lat: 25.034074, lon: 121.528921, address: "臺北市中正區信義路2段163號", hours: "24小時" },
+        { name: "臺北大安郵局ｉ郵箱", lat: 25.033747, lon: 121.538299, address: "臺北市大安區信義路3段89號", hours: "24小時" },
+        { name: "臺北青田郵局ｉ郵箱", lat: 25.026659, lon: 121.53114, address: "臺北市大安區和平東路1段155號", hours: "24小時" },
+        { name: "臺北仁愛郵局ｉ郵箱", lat: 25.038, lon: 121.547, address: "臺北市大安區仁愛路4段123號", hours: "24小時" },
+        { name: "臺北松山郵局ｉ郵箱", lat: 25.056, lon: 121.568, address: "臺北市松山區南京東路5段78號", hours: "24小時" },
+        { name: "臺北內湖郵局ｉ郵箱", lat: 25.083, lon: 121.575, address: "臺北市內湖區成功路2段202號", hours: "24小時" },
+        { name: "臺北士林郵局ｉ郵箱", lat: 25.092, lon: 121.524, address: "臺北市士林區中山北路6段78號", hours: "24小時" },
+        { name: "臺北北投郵局ｉ郵箱", lat: 25.136, lon: 121.496, address: "臺北市北投區中央南路1段3號", hours: "24小時" }
+    ];
+
+    // Nespresso 門市資料
+    const nespressoLocations = [
+        { name: "Nespresso 台北101門市", lat: 25.033976, lon: 121.564539, address: "臺北市信義區市府路45號", hours: "10:00-22:00" },
+        { name: "Nespresso 信義新光三越門市", lat: 25.035852, lon: 121.565104, address: "臺北市信義區松高路12號", hours: "11:00-21:30" }
+    ];
+
+    // 添加 iBox 郵筒標記點到地圖
+    iboxLocations.forEach(location => {
+        L.circleMarker([location.lat, location.lon], iboxMarkerOptions).addTo(map)
+            .bindPopup(`<b>${location.name}</b><br>${location.address}<br>營業時間: ${location.hours}`);
+    });
+
+    // 添加 Nespresso 門市標記點到地圖
+    nespressoLocations.forEach(location => {
+        L.circleMarker([location.lat, location.lon], nespressoMarkerOptions).addTo(map)
+            .bindPopup(`<b>${location.name}</b><br>${location.address}<br>營業時間: ${location.hours}`);
+    });
+</script>
+
+
 <footer class="footer text-faded text-center py-5">
     <div class="container">
         <p class="m-0 small">
@@ -105,6 +188,7 @@
         </p>
     </div>
 </footer>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

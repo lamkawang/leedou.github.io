@@ -95,8 +95,61 @@
                 height: auto;
             }
 </style>
+<style>
+#coffee-flavors {
+    background-color: #333;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.flavor-slider {
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.flavor-item {
+    display: inline-block;
+    padding: 0 20px;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.flavor-item img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 一次完整的滑動動畫 */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100%)); }
+}
+
+.flavor-slider.animated {
+    animation: slide 10s linear infinite;
+}
+
+
+</style>
     </head>
     <body>
+                <script>
+window.embeddedChatbotConfig = {
+chatbotId: "ZzNDtGEBzZsWjwYIYzgVK",
+domain: "www.chatbase.co"
+}
+</script>
+<script>
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="ZzNDtGEBzZsWjwYIYzgVK"
+domain="www.chatbase.co"
+defer>
+</script>
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">膠囊咖啡</span>
@@ -190,6 +243,22 @@
     </div>
 </section>
 
+<section class="page-section" id="coffee-flavors">
+    <h2 style="text-align: center; color: #fff; font-size: 2em; margin-bottom: 20px;">膠囊咖啡口味</h2>
+    <div id="coffee-flavors">
+    <div class="flavor-slider" id="flavor-slider">
+        <div class="flavor-item"><img src="assets/img/flavor1.jpg" alt="Flavor 1"></div>
+        <div class="flavor-item"><img src="assets/img/flavor2.jpg" alt="Flavor 2"></div>
+        <div class="flavor-item"><img src="assets/img/flavor3.jpg" alt="Flavor 3"></div>
+        <div class="flavor-item"><img src="assets/img/flavor4.jpg" alt="Flavor 4"></div>
+        <div class="flavor-item"><img src="assets/img/flavor5.jpg" alt="Flavor 5"></div>
+        <!-- 更多口味圖片 -->
+    </div>
+</div>
+</section>
+
+
+
 <section class="page-section" id="process-flow">
     <div class="container">
         <h1 class="section-heading text-center mb-5" style="color: white;">Nespresso膠囊咖啡回收流程</h1>
@@ -266,5 +335,27 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slider = document.getElementById("flavor-slider");
+
+            function startSliderAnimation() {
+                slider.classList.add("animated"); // 添加動畫類以觸發滑動
+            }
+
+            function resetSlider() {
+                slider.classList.remove("animated"); // 移除動畫類，將位置重置
+                slider.style.transform = "translateX(0)"; // 回到起始位置
+
+                // 使用 requestAnimationFrame 來確保動畫的平滑銜接
+                requestAnimationFrame(() => requestAnimationFrame(startSliderAnimation));
+            }
+
+            // 等待動畫結束
+            slider.addEventListener("animationiteration", resetSlider);
+
+            startSliderAnimation(); // 開始動畫
+        });
+    </script>
     </body>
 </html>
