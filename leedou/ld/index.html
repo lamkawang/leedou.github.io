@@ -99,6 +99,7 @@
 #coffee-flavors {
     background-color: #333;
     padding: 50px 0;
+    position: relative; /* 為了定位右下角的文字 */
     overflow: hidden;
 }
 
@@ -111,8 +112,8 @@
 .flavor-item {
     display: inline-block;
     padding: 0 20px;
-    border-radius: 10px;
     margin: 0 20px;
+    text-align: center;
 }
 
 .flavor-item img {
@@ -124,6 +125,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* 添加文字樣式 */
+.flavor-text {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+/* 超連結樣式 */
+.more-flavors-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: #444;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.more-flavors-link:hover {
+    background-color: #555;
+}
+
 /* 一次完整的滑動動畫 */
 @keyframes slide {
     0% { transform: translateX(0); }
@@ -133,6 +159,8 @@
 .flavor-slider.animated {
     animation: slide 10s linear infinite;
 }
+
+
 
 
 </style>
@@ -245,17 +273,44 @@ defer>
 
 <section class="page-section" id="coffee-flavors">
     <h2 style="text-align: center; color: #fff; font-size: 2em; margin-bottom: 20px;">膠囊咖啡口味</h2>
-    <div id="coffee-flavors">
-    <div class="flavor-slider" id="flavor-slider">
-        <div class="flavor-item"><img src="assets/img/flavor1.jpg" alt="Flavor 1"></div>
-        <div class="flavor-item"><img src="assets/img/flavor2.jpg" alt="Flavor 2"></div>
-        <div class="flavor-item"><img src="assets/img/flavor3.jpg" alt="Flavor 3"></div>
-        <div class="flavor-item"><img src="assets/img/flavor4.jpg" alt="Flavor 4"></div>
-        <div class="flavor-item"><img src="assets/img/flavor5.jpg" alt="Flavor 5"></div>
-        <!-- 更多口味圖片 -->
+    <div class="flavor-slider animated">
+        <div class="flavor-item">
+            <img src="assets/img/flavor1.jpg" alt="Flavor 1">
+            <div class="flavor-text">義式經典拿破里</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor2.jpg" alt="Flavor 2">
+            <div class="flavor-text">焦糖風味咖啡</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor3.jpg" alt="Flavor 3">
+            <div class="flavor-text">烤榛果風味咖啡</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor4.jpg" alt="Flavor 4">
+            <div class="flavor-text">哥倫比亞</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor5.jpg" alt="Flavor 5">
+            <div class="flavor-text">巴黎濃縮咖啡</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor6.jpg" alt="Flavor 6">
+            <div class="flavor-text">義式經典威尼斯</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor7.jpg" alt="Flavor 7">
+            <div class="flavor-text">印度</div>
+        </div>
+        <div class="flavor-item">
+            <img src="assets/img/flavor8.jpg" alt="Flavor 8">
+            <div class="flavor-text">維也納大杯咖啡</div>
+        </div>
     </div>
-</div>
+    <a href="https://www.nespresso.com/tw/zh/order/capsules/original" class="more-flavors-link">觀看更多口味</a>
 </section>
+
+
 
 
 
