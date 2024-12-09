@@ -96,6 +96,17 @@
             }
 </style>
 <style>
+        h1 {
+            text-align: center; /* 文字置中 */
+            color: white; /* 文字顏色為白 */
+            margin: 20px 0; /* 添加上下邊距 */
+        }
+        #map {
+            width: 100%;
+            height: 90vh; /* 地圖高度設為視窗的90% */
+        }
+    </style>
+<style>
 #coffee-flavors {
     background-color: #333;
     padding: 50px 0;
@@ -372,7 +383,161 @@ defer>
     </div>
 </section>
 
+<script>
+window.embeddedChatbotConfig = {
+chatbotId: "ZzNDtGEBzZsWjwYIYzgVK",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="ZzNDtGEBzZsWjwYIYzgVK"
+domain="www.chatbase.co"
+defer>
+</script>
+<body>
+    <h1>iBox 郵筒與 Nespresso 門市地圖</h1>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+<div id="map" style="height: 600px; width: 100%;"></div>
+<script>
+    // 初始化地圖
+    var map = L.map('map').setView([25.033, 121.5654], 12); // 中心點設置在台北
+
+    // 添加 OpenStreetMap 地圖圖層
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // 自訂 iBox 郵筒與 Nespresso 門市的樣式
+    const iboxMarkerOptions = {
+        radius: 8,
+        fillColor: "blue",
+        color: "blue",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    const nespressoMarkerOptions = {
+        radius: 8,
+        fillColor: "green",
+        color: "green",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    // iBox 郵筒資料
+    const iboxLocations = [
+    { name: "臺北開封街ｉ郵箱", lat: 25.04613, lon: 121.512421, address: "臺北市中正區開封街1段45號", hours: "24小時" },
+    { name: "臺北南陽郵局ｉ郵箱", lat: 25.04452, lon: 121.51587, address: "臺北市中正區信陽街8號", hours: "24小時" },
+    { name: "臺北東門郵局ｉ郵箱", lat: 25.034074, lon: 121.528921, address: "臺北市中正區信義路2段163號", hours: "24小時" },
+    { name: "臺北大安郵局ｉ郵箱", lat: 25.033747, lon: 121.538299, address: "臺北市大安區信義路3段89號", hours: "24小時" },
+    { name: "臺北青田郵局ｉ郵箱", lat: 25.026659, lon: 121.53114, address: "臺北市大安區和平東路1段155號", hours: "24小時" },
+    { name: "臺北仁愛郵局ｉ郵箱", lat: 25.038, lon: 121.547, address: "臺北市大安區仁愛路4段123號", hours: "24小時" },
+    { name: "臺北松山郵局ｉ郵箱", lat: 25.056, lon: 121.568, address: "臺北市松山區南京東路5段78號", hours: "24小時" },
+    { name: "臺北內湖郵局ｉ郵箱", lat: 25.083, lon: 121.575, address: "臺北市內湖區成功路2段202號", hours: "24小時" },
+    { name: "臺北士林郵局ｉ郵箱", lat: 25.092, lon: 121.524, address: "臺北市士林區中山北路6段78號", hours: "24小時" },
+    { name: "臺北北投郵局ｉ郵箱", lat: 25.136, lon: 121.496, address: "臺北市北投區中央南路1段3號", hours: "24小時" },
+    { name: "萬華大理國宅ｉ郵箱", lat: 25.031938, lon: 121.494319, address: "臺北市萬華區環河南路2段175巷18號", hours: "24小時" },
+    { name: "萬華龍山自助郵局ｉ郵箱", lat: 25.036623, lon: 121.502453, address: "臺北市萬華區廣州街67號", hours: "24小時" },
+    { name: "臺北萬大路郵局ｉ郵箱", lat: 25.018861, lon: 121.496790, address: "臺北市萬華區萬大路524號", hours: "24小時" },
+    { name: "臺北洗潔淨萬大店ｉ郵箱", lat: 25.021427, lon: 121.500500, address: "臺北市萬華區萬大路423巷49號", hours: "24小時" },
+    { name: "萬華莒光社宅ｉ郵箱", lat: 25.031922, lon: 121.500240, address: "臺北市萬華區萬大路22號", hours: "24小時" },
+    { name: "臺北電影主題公園ｉ郵箱", lat: 25.045442, lon: 121.503382, address: "臺北市萬華區康定路19號", hours: "24小時" },
+    { name: "萬華峨眉停車場ｉ郵箱", lat: 25.044109, lon: 121.503368, address: "臺北市萬華區峨眉街83號", hours: "24小時" },
+    { name: "萬華青年社宅ｉ郵箱", lat: 25.020087, lon: 121.50366, address: "臺北市萬華區青年路188號", hours: "24小時" },
+    { name: "萬華253自助洗衣店ｉ郵箱", lat: 25.021337, lon: 121.494292, address: "臺北市萬華區長泰街253號", hours: "24小時" },
+    { name: "臺北西園郵局ｉ郵箱", lat: 25.040781, lon: 121.501032, address: "臺北市萬華區長沙街2段156號", hours: "24小時" },
+    { name: "萬華東園街68-8ｉ郵箱", lat: 25.025478, lon: 121.496645, address: "臺北市萬華區東園街68-8號", hours: "24小時" },
+    { name: "臺北東園郵局ｉ郵箱", lat: 25.023331, lon: 121.497502, address: "臺北市萬華區東園街148、150號", hours: "24小時" },
+    { name: "臺北華江橋郵局ｉ郵箱", lat: 25.035287, lon: 121.493027, address: "臺北市萬華區和平西路3段310號", hours: "24小時" },
+    { name: "萬華國中地下停車場ｉ郵箱", lat: 25.029416, lon: 121.500054, address: "臺北市萬華區西藏路201號B1", hours: "24小時" },
+    { name: "南港中南社宅ｉ郵箱", lat: 25.042697, lon: 121.616483, address: "臺北市南港區舊莊街1段3巷42號", hours: "24小時" },
+    { name: "南港花園社區管委會ｉ郵箱", lat: 25.039647, lon: 121.592658, address: "臺北市南港區福德街441號1樓", hours: "24小時" },
+    { name: "南港花園社區自助郵局ｉ郵箱", lat: 25.039538, lon: 121.591773, address: "臺北市南港區福德街373巷27號", hours: "24小時" },
+    { name: "南港花園社區提款機ｉ郵箱", lat: 25.039538, lon: 121.591773, address: "臺北市南港區福德街373巷27號", hours: "24小時" },
+    { name: "南港伊美自助洗ｉ郵箱", lat: 25.039273, lon: 121.585499, address: "臺北市南港區福德街311號", hours: "24小時" },
+    { name: "北捷南港軟體園區站ｉ郵箱", lat: 25.060026, lon: 121.615794, address: "臺北市南港區經貿二路183號(近1號出口)", hours: "06:00-24:00" },
+    { name: "南港軟體園區郵局ｉ郵箱", lat: 25.05846, lon: 121.6119, address: "臺北市南港區園區街3-2號H棟1樓", hours: "24小時" },
+    { name: "中研院郵局ｉ郵箱", lat: 25.042854, lon: 121.6165, address: "臺北市南港區研究院路2段108號", hours: "24小時" },
+    { name: "南港郵局ｉ郵箱", lat: 25.053982, lon: 121.603483, address: "臺北市南港區南港路2段78號", hours: "24小時" },
+    { name: "南港東明社宅ｉ郵箱", lat: 25.054367, lon: 121.601715, address: "臺北市南港區南港路2段60巷17號", hours: "24小時" },
+    { name: "南港全聯旗艦店ｉ郵箱", lat: 25.054444, lon: 121.603361, address: "臺北市南港區南港路2段20巷5號B1", hours: "08:00-23:00" },
+    { name: "南港高工ｉ郵箱", lat: 25.054525, lon: 121.608124, address: "臺北市南港區南港路1段350號", hours: "24小時" },
+    { name: "北捷南港展覽館站ｉ郵箱", lat: 25.055656, lon: 121.617391, address: "臺北市南港區南港路1段32號", hours: "06:00-24:00" },
+    { name: "南港玉成國小停車場ｉ郵箱", lat: 25.05333, lon: 121.592722, address: "臺北市南港區昆陽街23號", hours: "24小時" },
+    { name: "北捷昆陽站ｉ郵箱", lat: 25.050442, lon: 121.592814, address: "臺北市南港區忠孝東路6段451號(近2號出口)", hours: "06:00-24:00" },
+    { name: "南港昆陽郵局ｉ郵箱", lat: 25.04984, lon: 121.5927, address: "臺北市南港區忠孝東路6段402號", hours: "24小時" },
+    { name: "北捷後山埤站ｉ郵箱", lat: 25.044727, lon: 121.582279, address: "臺北市南港區忠孝東路6段2號(近3號出口)", hours: "06:00-24:00" },
+    { name: "南港鴻福社區ｉ郵箱", lat: 25.043347, lon: 121.586606, address: "臺北市南港區成福路92號", hours: "24小時" },
+    { name: "南港玉成公園停車場ｉ郵箱", lat: 25.041687, lon: 121.586813, address: "臺北市南港區成福路118號", hours: "24小時" },
+    { name: "南港小彎社宅ｉ郵箱", lat: 25.057333, lon: 121.591442, address: "臺北市南港區向陽路250號", hours: "24小時" },
+    { name: "南港同德郵局ｉ郵箱", lat: 25.04624, lon: 121.585658, address: "臺北市南港區同德路85巷2號", hours: "24小時" },
+    { name: "南港成德市場ｉ郵箱", lat: 25.046123, lon: 121.586789, address: "臺北市南港區同德路100號", hours: "24小時" },
+    { name: "臺北逸仙郵局ｉ郵箱", lat: 25.040388, lon: 121.561763, address: "臺北市信義區逸仙路46號", hours: "24小時" },
+    { name: "臺北吳興郵局ｉ郵箱", lat: 25.026879, lon: 121.566288, address: "臺北市信義區莊敬路418之1號", hours: "24小時" },
+    { name: "臺北忠駝社區ｉ郵箱", lat: 25.034934, lon: 121.559049, address: "臺北市信義區基隆路1段364巷10號", hours: "24小時" },
+    { name: "北捷象山站ｉ郵箱", lat: 25.032701, lon: 121.569856, address: "臺北市信義區信義路5段152號B1(近2號出口)", hours: "06:00-24:00" },
+    { name: "臺北美衣潔永春店ｉ郵箱", lat: 25.043453, lon: 121.574063, address: "臺北市信義區虎林街82巷25-1號", hours: "24小時" }, 
+    { name: "臺北四維里辦公室ｉ郵箱", lat: 25.0442, lon: 121.57686, address: "臺北市信義區虎林街70巷1號", hours: "24小時" }, 
+    { name: "臺北美衣潔松德店ｉ郵箱", lat: 25.036917, lon: 121.575177, address: "臺北市信義區虎林街222巷30號", hours: "24小時" },
+    { name: "臺北福爾摩莎大廈ｉ郵箱", lat: 25.036388, lon: 121.575051, address: "臺北市信義區松德路161號", hours: "24小時" },
+    { name: "臺北信義郵局ｉ郵箱", lat: 25.033678, lon: 121.567289, address: "臺北市信義區松廉路76號", hours: "24小時" },
+    { name: "臺北四育里活動中心ｉ郵箱", lat: 25.048097, lon: 121.576297, address: "臺北市信義區松隆路290號", hours: "24小時" },
+    { name: "臺北中油大樓ｉ郵箱", lat: 25.039583, lon: 121.569366, address: "臺北市信義區松仁路3號B1", hours: "24小時" },
+    { name: "信義區泰和里辦公室ｉ郵箱", lat: 25.021307, lon: 121.570109, address: "臺北市信義區松仁路308巷60號", hours: "24小時" },
+    { name: "松山路自助郵局ｉ郵箱", lat: 25.035871, lon: 121.57862, address: "臺北市信義區松山路645號", hours: "24小時" },
+    { name: "臺北家美大樓ｉ郵箱", lat: 25.040911, lon: 121.578862, address: "臺北市信義區忠孝東路5段510號", hours: "24小時" },
+    { name: "臺北永春郵局ｉ郵箱", lat: 25.040682, lon: 121.576702, address: "臺北市信義區忠孝東路5段466號", hours: "24小時" },
+    { name: "北捷永春站ｉ郵箱", lat: 25.04097, lon: 121.57529, address: "臺北市信義區忠孝東路5段455號(近1號出口)", hours: "06:00-24:00" },
+    { name: "捷運市政府站ｉ郵箱", lat: 25.041159, lon: 121.565841, address: "臺北市信義區忠孝東路5段2號B1(近1、4號出口中央)", hours: "06:00-24:00" },
+    { name: "黎忠區民活動中心ｉ郵箱", lat: 25.020132, lon: 121.557867, address: "臺北市信義區和平東路3段391巷16號", hours: "24小時" },
+    { name: "臺北永吉市場ｉ郵箱", lat: 25.044652, lon: 121.57554, address: "臺北市信義區永吉路278巷1弄30號", hours: "24小時" },
+    { name: "臺北永吉郵局ｉ郵箱", lat: 25.045504, lon: 121.571014, address: "臺北市信義區永吉路168號1樓", hours: "24小時" },
+    { name: "臺北永吉路121ｉ郵箱", lat: 25.045713, lon: 121.570171, address: "臺北市信義區永吉路121號", hours: "24小時" },
+
+];
+
+
+    // Nespresso 門市資料
+    const nespressoLocations = [
+        { name: "Nespresso 台北101門市", lat: 25.033976, lon: 121.564539, address: "臺北市信義區市府路45號", hours: "10:00-22:00" },
+        { name: "Nespresso 信義新光三越門市", lat: 25.035852, lon: 121.565104, address: "臺北市信義區松高路12號", hours: "11:00-21:30" },
+        { name: "Nespresso 台北 微風信義 B1", lat: 25.040652, lon: 121.566790, address: "台北市信義區忠孝東路五段68號", hours: "11:00-21:30" },
+        { name: "Nespresso 新北 MegaCity 板橋大遠百 B1", lat: 25.014181, lon: 121.467333, address: "新北市板橋區新站路28號", hours: "11:00-22:00" },
+        { name: "Nespresso 新北 誠品生活新店1樓", lat: 24.978216, lon: 121.546459, address: "新北市新店區中興路三段70號1樓", hours: "11:00-21:30" }
+    ];
+
+iboxLocations.forEach(location => {
+    L.circleMarker([location.lat, location.lon], iboxMarkerOptions)
+        .addTo(map)
+        .bindPopup(`<b>${location.name}</b><br>${location.address}<br>營業時間: ${location.hours}`);
+});
+
+// 添加 Nespresso 門市標記點到地圖
+nespressoLocations.forEach(location => {
+    L.circleMarker([location.lat, location.lon], nespressoMarkerOptions)
+        .addTo(map)
+        .bindPopup(`<b>${location.name}</b><br>${location.address}<br>營業時間: ${location.hours}`);
+});
+// 加入縮放控制
+L.control.zoom({
+    position: 'topright'
+}).addTo(map);
+
+// 搜尋功能（需載入相關插件，如 Leaflet.Control.Search）
+L.control.search({
+    layer: L.layerGroup([...iboxLocations, ...nespressoLocations].map(location => 
+        L.marker([location.lat, location.lon]).bindPopup(`<b>${location.name}</b><br>${location.address}`))),
+    initial: false,
+    zoom: 15
+}).addTo(map);
+
+</script>
 
 <footer class="footer text-faded text-center py-5">
     <div class="container">
